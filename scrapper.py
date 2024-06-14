@@ -36,8 +36,6 @@ TWITTER_USERNAME_6="cha.udhryasim5@gmail.com"
 TWITTER_EMAIL_6="udhryasim5"
 TWITTER_PASSWORD_6="112291178Asd@"
 
-TELEGRAM_CHAT_ID = "-1002008896895"  # SQS SNIPER
-
 ##############################################################################
 
 
