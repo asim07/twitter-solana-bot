@@ -16,8 +16,9 @@ TWITTER_EMAIL="chaudhryasi"
 TWITTER_PASSWORD="11229117878"
 
 
-TWITTER_USERNAME_2="chaudh.ryasim5@gmail.com"
-TWITTER_EMAIL_2="cancda111996"
+
+TWITTER_USERNAME_2="chaudhr.ya.sim5@gmail.com"
+TWITTER_EMAIL_2="ChTeasd64183"
 TWITTER_PASSWORD_2="112291178Asd@"
 
 TWITTER_USERNAME_3="chaudhrya.sim5@gmail.com"
