@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Remove the sol_address.txt file if it exists
+rm -f sol_address.txt
+
 # Run scrapper.py to get the CA
 python3 scrapper.py AsimHay70862557
 

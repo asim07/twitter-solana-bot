@@ -11,30 +11,30 @@ from twikit.twikit_async import Client
 
 ##############################################################################
 
-TWITTER_USERNAME=""
-TWITTER_EMAIL=""
-TWITTER_PASSWORD=""
+TWITTER_USERNAME="chaudhryasi.m5@gmail.com"
+TWITTER_EMAIL="chaudhryasi"
+TWITTER_PASSWORD="11229117878"
 
 
-TWITTER_USERNAME_2=""
-TWITTER_EMAIL_2=""
-TWITTER_PASSWORD_2=""
+TWITTER_USERNAME_2="chaudh.ryasim5@gmail.com"
+TWITTER_EMAIL_2="cancda111996"
+TWITTER_PASSWORD_2="112291178Asd@"
 
-TWITTER_USERNAME_3=""
-TWITTER_EMAIL_3=""
-TWITTER_PASSWORD_3=""
+TWITTER_USERNAME_3="chaudhrya.sim5@gmail.com"
+TWITTER_EMAIL_3="cancda113293768"
+TWITTER_PASSWORD_3="112291178Asd@"
 
-TWITTER_USERNAME_4=""
-TWITTER_EMAIL_4=""
-TWITTER_PASSWORD_4=""
+TWITTER_USERNAME_4="chaud.hryasim5@gmail.com"
+TWITTER_EMAIL_4="hryasim5"
+TWITTER_PASSWORD_4="112291178Asd@"
 
-TWITTER_USERNAME_5=""
-TWITTER_EMAIL_5=""
-TWITTER_PASSWORD_5=""
+TWITTER_USERNAME_5="ch.audhryasim5@gmail.com"
+TWITTER_EMAIL_5="ch_teasd"
+TWITTER_PASSWORD_5="112291178Asd@"
 
-TWITTER_USERNAME_6=""
-TWITTER_EMAIL_6=""
-TWITTER_PASSWORD_6=""
+TWITTER_USERNAME_6="cha.udhryasim5@gmail.com"
+TWITTER_EMAIL_6="udhryasim5"
+TWITTER_PASSWORD_6="112291178Asd@"
 
 ##############################################################################
 
