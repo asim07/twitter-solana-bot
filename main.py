@@ -116,15 +116,16 @@ async def trigger_buy(mint_address, market_id, Token0):
     mint_info = spl.get_mint_info()
     base_decimals = mint_info.decimals
     quote_decimals = 9
-    if MINT_AUTHORITY:
-        if not mint_info.mint_authority:
-            print('Mint authority not revoked!')
-            return
+    # if MINT_AUTHORITY:
+    #     if not mint_info.mint_authority:
+    #         print('Mint authority not revoked!')
+    #         return
     pool_keys = Liquidity.getAssociatedPoolKeys(4, 3, marketId=market_id, baseMint=mint_address, quoteMint=SOL, baseDecimals=base_decimals, quoteDecimals=quote_decimals, programId=RAYDIUM_PROGRAM_ID, marketProgramId=OPENBOOK)
     print(pool_keys)
     tx_hash, all_sigs = await spam_buys(payers=payers, mint=Token0, poolKeys=pool_keys)
 
     print(f"Bought successfully! | Datetime: {str(datetime.now())}")
+    os._exit();
     await asyncio.sleep(SELL_TIME_SECONDS)
     rty = 0
     while rty > 0:
@@ -145,63 +146,10 @@ from utils.check_market_id import check_for_market_id
 
 async def run(token_address):
     print(f'\nScanning token: {token_address}')
-    print(f'Checking if Market ID already created...')
+    print(f'processing buy')
     market_id = check_for_market_id(token_address)
-    if not market_id:
-        uri = 'wss://withered-burned-seed.solana-mainnet.quiknode.pro/7fac42fc0d536a16282603cffac81337d45a296e/'
-        while True:
-            try:
-                async with websockets.connect(uri) as websocket:
-                    # Send subscription request
-                    await websocket.send(json.dumps({
-                        "jsonrpc": "2.0",
-                        "id": 1,
-                        "method": "logsSubscribe",
-                        "params": [
-                            {"mentions": [str(OPENBOOK)]},
-                            {"commitment": "processed"}
-                        ]
-                    }))
-
-                    first_resp = await websocket.recv()
-                    response_dict = json.loads(first_resp)
-                    if 'result' in response_dict:
-                        print("Subscription successful. Subscription ID: ", response_dict['result'])
-                    # Continuously read from the WebSocket
-                    async for response in websocket:
-                        response_dict = json.loads(response)
-                        if 'params' in response_dict and 'result' in response_dict['params']:
-                            if 'value' in response_dict['params']['result']:
-                                if 'logs' in response_dict['params']['result']['value']:
-                                    log_messages_set = set(response_dict['params']['result']['value']['logs'])
-                                    if response_dict['params']['result']['value']['err'] is None:
-                                        signature = response_dict['params']['result']['value']['signature']
-                                        if signature not in seen_signatures:
-                                            seen_signatures.add(signature)
-                                            search = f"Program {str(OPENBOOK)}"
-                                            if any(search in message for message in log_messages_set):
-                                                try:
-                                                    await getTokens(signature, token_address)
-                                                except Exception as e:
-                                                    print(e)
-                                else:
-                                    print("Logs not found in the response")
-                            else:
-                                print("Value not found in the response")
-                        else:
-                            print("Params or result not found in the response")
-            except websockets.ConnectionClosedError as e:
-                print(f"WebSocket connection closed: {e}")
-                print("Reconnecting...")
-                continue  # Reconnect on connection closed error
-            except Exception as e:
-                print(f"An error occurred: {e}")
-                break
-    else:
-        print('Market ID already created!')
-        print(market_id)
-        await trigger_buy(mint_address=Pubkey.from_string(token_address), market_id=Pubkey.from_string(market_id), Token0=Pubkey.from_string(token_address))
-        return
+    await trigger_buy(mint_address=Pubkey.from_string(token_address), market_id=Pubkey.from_string(market_id), Token0=Pubkey.from_string(token_address))
+    return
 
 async def main():
     while True:
