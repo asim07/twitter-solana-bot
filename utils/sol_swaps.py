@@ -44,8 +44,6 @@ def confirm_sol_tx(hash_value, user, direction, web3, network, base, coin, amoun
 
 
 async def get_buy_tx_for_user(payer, mint, poolKeys, base, amount):
-    
-    
     balance = base.get_sol_balance(payer.pubkey())
     print(f"Balance: {balance} | Amount: {amount}")
     if balance>0:
